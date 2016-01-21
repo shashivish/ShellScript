@@ -1,5 +1,4 @@
 
-
 Input Required.
 1.Path of Keytab file
 2.Principle name
@@ -13,9 +12,19 @@ Input Required.
 
 
 1.Kerberos Authentication - break code if authentication fails.
-2.Read data from Hbase --- > Row id and parsing --- apply filter on column family
+2.Read data from Hbase --- > Row id and parsing --- apply filter on column famil
 	parse json file and extract data location
-3. Read 100 lines from file and write back in hdfs folder. // Look for the structure 
+	extract list of path in hashmap - key being row key and path being value
+3. Read 100 lines from file and write back in hdfs folder. // Look for the structure
+	Iterate on hash map
+	check if it is directory or file - check existence of location - handling log in case of absence
+	find no of file present in directory 
+	cach file name 
+	check for file type and catagorize them acoordingly
+	start reading valid file 
+	transfer information into another file -- check for structure of it.
+	send status back to shell script - think one more time in this!!!!!!!!!!!!!.
+ 
 4. Export data from HDFS to Microsoft SQL Server. - Sqoop JAVA API can be - Sqoop client or in shell script call sqoop existing sqoop tool to push data 
 	Need SQl Server host:port ,table name.
 5.Create Logger - Console + File Logging + Check of Server logging is required - Hive can be used for storing log.
@@ -26,4 +35,5 @@ Input Required.
 2.What should be done if path found does not exist?
 3.What should be done if path does not have read permission?
 4.Where we should store file sample output for transferring to SQL Server ? Do we want to store it HDFS so that sqoop can be used?
-
+5.What should be done for invalid list of file present in directory?
+6.
