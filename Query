@@ -1,0 +1,29 @@
+
+
+Input Required.
+1.Path of Keytab file
+2.Principle name
+3.TimeRange for Query
+4.Local log location
+5.SQL Server Host and Port 
+6.Credential for accessing SQl Server - KeyStore can be created for security
+7.Database Name + Table Name
+8.Application Code Name
+9.Hbase table name and column family name
+
+
+1.Kerberos Authentication - break code if authentication fails.
+2.Read data from Hbase --- > Row id and parsing --- apply filter on column family
+	parse json file and extract data location
+3. Read 100 lines from file and write back in hdfs folder. // Look for the structure 
+4. Export data from HDFS to Microsoft SQL Server. - Sqoop JAVA API can be - Sqoop client or in shell script call sqoop existing sqoop tool to push data 
+	Need SQl Server host:port ,table name.
+5.Create Logger - Console + File Logging + Check of Server logging is required - Hive can be used for storing log.
+	 - Beeline connectivity can be used using java for pushing data into Hive.
+
+
+1.What should be done if no record found for filter criteria?
+2.What should be done if path found does not exist?
+3.What should be done if path does not have read permission?
+4.Where we should store file sample output for transferring to SQL Server ? Do we want to store it HDFS so that sqoop can be used?
+
