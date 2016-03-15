@@ -4,20 +4,42 @@ xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assemb
 
   <id>dist-assembly</id>
 
-  <formats>
+ <formats>
       <format>zip</format>
-  </formats>
+  </formats> 
 
   <includeBaseDirectory>false</includeBaseDirectory>
 
   <fileSets>
   <fileSet>
-                        <directory>scripts</directory>
-                        <outputDirectory>script_out</outputDirectory>
-                        <includes>
-                                <include>*.sh</include>
-                                <include>*.sql</include>
-                        </includes>
-                </fileSet>
+			<directory>script</directory>
+			<outputDirectory>script_out</outputDirectory>
+			<includes>
+				<include>*.sh</include>
+				<include>*.sql</include>
+			</includes>
+		</fileSet>
+  <fileSet>
+			<directory>lib</directory>
+			<outputDirectory>lib_out</outputDirectory>
+			<includes>
+				<include>*.jar</include>
+			</includes>
+		</fileSet>
+		
+			<fileSet>
+			<directory>target</directory>
+			<outputDirectory>target_out</outputDirectory>
+			<includes>
+				<include>*.jar</include>
+			</includes>
+		</fileSet>
   </fileSets>
+  
+  <dependencySets>
+ 	<dependencySet>
+		<outputDirectory>lib</outputDirectory> 
+	</dependencySet>
+ </dependencySets>
+  
 </assembly>
